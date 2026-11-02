@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-11-02
 ---
 
 # Morning digest
@@ -77,3 +78,20 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Digest types: src/digest/types.ts | — | claude-code · opus-5.5 · low | 2026-11-02 |
+| 2 | Run log reader: readNight | #1 | claude-code · opus-5.5 · low | 2026-11-02 |
+| 3 | Digest page: GET /digest/:night | #1 | claude-code · sonnet-5.5 · default | 2026-11-02 |
+| 4 | Digest JSON: GET /api/digest/:night | #1 | claude-code · sonnet-5.5 · default | 2026-11-02 |
+| 5 | Board link: nights to digests with counts | #1 | claude-code · sonnet-5.5 · default | 2026-11-02 |
+| 6 | Route tests for digest page and JSON | #1 (green needs #3, #4) | claude-code · sonnet-5.5 · default | 2026-11-02 |
+| 7 | Preview for review | #2–#6 | claude-code · opus-5.5 · low | 2026-11-02 |
+| 8 | Clean up: take the marker off the preview | #7, the review | claude-code · opus-5.5 · low | 2026-11-02 |
+
+§ 1 was split in two so § 2 could start against the types alone. #7 was closed when the link was
+sent and reopened: it holds only once the reviewer has looked. The first preview deploy's own
+permalink on Netlify still carried the marker after #8; see the closing comment on #8.
